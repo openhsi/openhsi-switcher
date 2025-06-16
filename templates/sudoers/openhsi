@@ -1,0 +1,8 @@
+# Allow openhsi user to control systemd services
+openhsi ALL=(ALL) NOPASSWD: /bin/systemctl start openhsi-*.service
+openhsi ALL=(ALL) NOPASSWD: /bin/systemctl stop openhsi-*.service
+openhsi ALL=(ALL) NOPASSWD: /bin/systemctl restart openhsi-*.service
+openhsi ALL=(ALL) NOPASSWD: /bin/systemctl status openhsi-*.service
+openhsi ALL=(ALL) NOPASSWD: /usr/sbin/nginx -s reload
+openhsi ALL=(ALL) NOPASSWD: /bin/ln -s /etc/nginx/sites-available/* /etc/nginx/sites-enabled/*
+openhsi ALL=(ALL) NOPASSWD: /bin/rm /etc/nginx/sites-enabled/*

@@ -1,0 +1,14 @@
+[Unit]
+Description=OpenHSI Jupyter Server
+After=network.target
+
+[Service]
+Type=simple
+User=openhsi
+Group=openhsi
+WorkingDirectory=/home/openhsi
+ExecStart=/bin/bash -c 'source CONDA_BASE/bin/activate openhsi && jupyter lab --no-browser --port=8888 --ip=0.0.0.0 --NotebookApp.token="" --NotebookApp.password=""'
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

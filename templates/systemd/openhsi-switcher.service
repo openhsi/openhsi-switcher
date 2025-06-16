@@ -1,0 +1,18 @@
+[Unit]
+Description=OpenHSI Service Controller
+After=network.target
+
+[Service]
+Type=simple
+User=openhsi
+Group=openhsi
+WorkingDirectory=/opt/openhsi/controller
+ExecStart=/bin/bash -c 'source CONDA_BASE/bin/activate openhsi-switcher && python /opt/openhsi/controller/openhsi-switcher.py'
+Restart=always
+RestartSec=10
+
+# Security settings
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
